@@ -1,3 +1,49 @@
+local map = "Toyboard"
+if game.PlaceId == 3260590327 then
+    local args = {
+        [1] = "Multiplayer",
+        [2] = "single_create"
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+
+    local args = {
+        [1] = "Multiplayer",
+        [2] = "single_start",
+        [3] = {
+            ["count"] = 1,
+            ["mode"] = "survival"
+        }
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+end
+
+if game.PlaceId == 5591597781 then
+    local args1 = {
+        [1] = "LobbyVoting",
+        [2] = "Override",
+        [3] = map
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args1))
+    wait(0.1)
+
+    local args2 = {
+        [1] = "LobbyVoting",
+        [2] = "Vote",
+        [3] = map,
+        [4] = Vector3.new(14.699155807495117, 58.931583404541016, 56.18524932861328)
+    }
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args2))
+
+    local args3 = {
+        [1] = "LobbyVoting",
+        [2] = "Ready"
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args3))
+    wait(6)
 getgenv().Debug = true
 getgenv().GoldenPerks = {"Soldier",}
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/banbuskox/dfhtyxvzexrxgfdzgzfdvfdz/main/ckmhjvskfkmsStratFun2", true))()
